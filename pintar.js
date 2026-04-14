@@ -57,7 +57,7 @@ pintarRatoli();
 function colorRatoli(event){
     if (event.key == "1") color = "#000000";
     if (event.key == "2") color = "#00ffff";
-    if (event.key == "0") color = "#ffffff00"; // o null
+    if (event.key == "0") color = "null"; // o #ffffff00
     if (event.key == " ") { // limpiar todo el canvas (300x300): esquina up-L, luego el ancho y la altura
         ctx.clearRect(0, 0, canvas.width, canvas.height); // update beofre painting con el método clearX
         pintarRatoli();
