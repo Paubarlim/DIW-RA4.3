@@ -10,8 +10,8 @@ canvas.addEventListener("mousemove", pintarRatoli);
 document.addEventListener("keydown", colorRatoli);
 // este evento de "keydown" solo funciona en document y no canvas
 // crear funcion general que englobe el resto
-    function pintarRatoli(event){
-        console.log("ratoli");
+    function pintarRatoli(event){ // limpiar antes de volver a dibujar
+        ctx.clearRect(0, 0, canvas.width, canvas.height); 
         var x = event ? event.offsetX: marge*3+diametre*2+radio; // modificar variables
         var y = event ? event.offsetY: marge+alçada-radio; // solo se aplica en el circle2
         // si hay evento usa las corrdenadas del ratón, si no usa las coordenadas fijas
@@ -59,8 +59,7 @@ function colorRatoli(event){
     if (event.key == "2") color = "#00ffff";
     if (event.key == "0") color = "#FFFFFF"; // o #ffffff00
     if (event.key == " ") { // limpiar todo el canvas (300x300): esquina up-L, luego el ancho y la altura
-        ctx.clearRect(0, 0, canvas.width, canvas.height); // update beofre painting con el método clearX
         pintarRatoli();
-    }       
+    }
+    pintarRatoli();
 }
-colorRatoli();
